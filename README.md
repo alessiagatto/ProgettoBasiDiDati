@@ -18,6 +18,8 @@ componenti, prodotti da costruttori diversi. Se una vettura partecipa ad
 una gara conseguirà dei punti a seconda della sua posizione ricoperta
 al termine della stessa.
 
+La documentazione del progetto la trovate [qui](documentazione/Progetto.pdf).
+
 ## Descrizione dettagliata 
  > macro-operazioni
 1. Gestione del campionato:
