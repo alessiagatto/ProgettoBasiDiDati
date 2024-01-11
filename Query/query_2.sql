@@ -1,6 +1,5 @@
 # Insert Vettura
-INSERT INTO Vettura (NumeroGara, NomeScuderia, MotivoRitiro, Modello, Punti, Posizione) VALUES
-    (?,?,?,?,?,?,?);
+INSERT INTO Vettura (NumeroGara, NomeScuderia, MotivoRitiro, Modello, Punti, Posizione,Gara) VALUES (?, ?, ?, ?, ?, ?, ?);
 
 # Insert Costruttore
 INSERT INTO Costruttore (RagioneSociale, Nome, Sede) VALUES
