@@ -15,7 +15,7 @@ public class Query_1 extends JFrame {
         setVisible(true);
         setLocationRelativeTo(parent);
         setLayout(new FlowLayout());
-        // Creazione della barra dei menu
+        
         JMenuBar menuBar = new JMenuBar();
 
         // Creazione del menu "Help"
