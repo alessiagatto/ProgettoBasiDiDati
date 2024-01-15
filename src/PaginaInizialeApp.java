@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -17,10 +15,8 @@ public class PaginaInizialeApp extends JFrame {
     private Connection connection;
 
 
-    /* Inserire credenziali per loggare nel db */
-    private String url = "jdbc:mysql://localhost:3306/campionato";
-    private String user = "root";
-    private String password = "root";
+
+
 
 
     public PaginaInizialeApp() {
@@ -39,11 +35,7 @@ public class PaginaInizialeApp extends JFrame {
 
 
         JPanel panel = new JPanel();
-        JLabel labelUrl = new JLabel("Database : Campionato");
-        JLabel Admin = new JLabel("Utente :   " + user + "\n");
 
-        panel.add(labelUrl);
-        panel.add(Admin);
         panel.setBorder(BorderFactory.createEmptyBorder(25, 25, 25, 25));
         panel.setLayout(new GridLayout(0,3));
 
@@ -101,21 +93,21 @@ public class PaginaInizialeApp extends JFrame {
         panel.add(Query_15).setBackground(frameColor);
 
         // Aggiunta degli eventi ai bottoni
-        Query_1.addActionListener((event) -> {WindowQuery_1();});
-        Query_2.addActionListener((event) -> {WindowQuery_2();});
-        Query_3.addActionListener((event) -> {WindowQuery_3();});
-        Query_4.addActionListener((event) -> {WindowQuery_4();});
+        Query_1.addActionListener((event) -> WindowQuery_1());
+        Query_2.addActionListener((event) -> WindowQuery_2());
+        Query_3.addActionListener((event) -> WindowQuery_3());
+        Query_4.addActionListener((event) -> WindowQuery_4());
 
-        Query_6.addActionListener((event) -> {WindowQuery_6();});
-        Query_7.addActionListener((event) -> {WindowQuery_7();});
-        Query_8.addActionListener((event) -> {WindowQuery_8();});
-        Query_9.addActionListener((event) -> {WindowQuery_9();});
-        Query_10.addActionListener((event) -> {WindowQuery_10();});
-        Query_11.addActionListener((event) -> {WindowQuery_11();});
-        Query_12.addActionListener((event) -> {WindowQuery_12();});
-        Query_13.addActionListener((event) -> {WindowQuery_13();});
-        Query_14.addActionListener((event) -> {WindowQuery_14();});
-        Query_15.addActionListener((event) -> {WindowQuery_15();});
+        Query_6.addActionListener((event) -> WindowQuery_6());
+        Query_7.addActionListener((event) -> WindowQuery_7());
+        Query_8.addActionListener((event) -> WindowQuery_8());
+        Query_9.addActionListener((event) -> WindowQuery_9());
+        Query_10.addActionListener((event) -> WindowQuery_10());
+        Query_11.addActionListener((event) -> WindowQuery_11());
+        Query_12.addActionListener((event) -> WindowQuery_12());
+        Query_13.addActionListener((event) -> WindowQuery_13());
+        Query_14.addActionListener((event) -> WindowQuery_14());
+        Query_15.addActionListener((event) -> WindowQuery_15());
 
         JMenuBar menuBar = new JMenuBar();
 
@@ -123,12 +115,7 @@ public class PaginaInizialeApp extends JFrame {
         JMenu infoMenu = new JMenu("Help");
         JMenuItem aboutMenuItem = new JMenuItem("Riconoscimenti");
 
-        aboutMenuItem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                help();
-            }
-        });
+        aboutMenuItem.addActionListener(e -> help());
 
         infoMenu.add(aboutMenuItem);
 
@@ -151,8 +138,11 @@ public class PaginaInizialeApp extends JFrame {
     }
 
     private void help(){
-        JOptionPane.showMessageDialog(null, "Creatori del software:\t\nNormanno Iari\t\n" +
-                        "Gatto Alessia\nData: [2023/24]",
+        JOptionPane.showMessageDialog(null, """
+                        Creatori del software:\t
+                        Normanno Iari\t
+                        Gatto Alessia
+                        Data: [2023/24]""",
                 "Credenziali", JOptionPane.INFORMATION_MESSAGE);
     }
 
@@ -160,9 +150,10 @@ public class PaginaInizialeApp extends JFrame {
     private void connectToDatabase() {
         try {
 
-            String url = this.url;
-            String user = this.user;
-            String password = this.password;
+            /* Inserire credenziali per loggare nel db */
+             String url = "jdbc:mysql://localhost:3306/campionato";
+             String user = "root";
+             String password = "root";
 
             // Carica il driver JDBC
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -271,11 +262,6 @@ public class PaginaInizialeApp extends JFrame {
         JLabel label = new JLabel("Hello, Swing!");
         Font systemFont = label.getFont();
         setUIFont(new Font(systemFont.getName() ,Font.BOLD, 14));
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new PaginaInizialeApp();
-            }
-        });
+        SwingUtilities.invokeLater(PaginaInizialeApp::new);
     }
 }

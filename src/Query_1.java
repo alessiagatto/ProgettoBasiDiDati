@@ -3,8 +3,7 @@ import java.awt.*;
 import java.sql.*;
 import javax.swing.table.DefaultTableModel;
 import java.util.Vector;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 public class Query_1 extends JFrame {
 
     private final JTextField textFieldNomeScuderia, textFieldSedePrincipale;
@@ -43,16 +42,9 @@ public class Query_1 extends JFrame {
         add(buttonInserisci);
 
         // Aggiunta dell'evento al bottone di inserimento
-        buttonInserisci.addActionListener((event) -> {
-            insertScuderia();
-        });
+        buttonInserisci.addActionListener((event) -> insertScuderia());
 
-        aboutMenuItem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                visualizzaTabellaScuderie();
-            }
-        });
+        aboutMenuItem.addActionListener(e -> visualizzaTabellaScuderie());
 
         infoMenu.add(aboutMenuItem);
 
