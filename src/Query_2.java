@@ -3,8 +3,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
-import javax.swing.table.DefaultTableModel;
-import java.util.Vector;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.border.MatteBorder;
